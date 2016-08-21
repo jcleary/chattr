@@ -1,4 +1,4 @@
-# Chattr - Real Time Opinions
+# Chattr; Get real opinions in real-time
 
 A simple PHP app to get responses to opinion polls in real time. 
     
