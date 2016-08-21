@@ -79,7 +79,7 @@
                     data: {
                         labels: [<? foreach($options as $option) { echo "\"$option[1]\","; } ?>],
                         datasets: [{
-                            label: '# of Votes',
+                            label: '# of votes',
                             data: [12, 19, 3, 5, 2, 3],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
@@ -116,7 +116,7 @@
                 <?php
 
                     foreach($options as $option) {
-                        echo '<button type="button" class="btn btn-primary">' . $option[1] . '</button> ';
+                        echo '<button type="button" class="btn btn-primary vote-button" data-survey-id="' . $id . '" data-option-id="' . $option[0] . '">' . $option[1] . '</button> ';
                     }
                 ?>
 
