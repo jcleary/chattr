@@ -7,15 +7,12 @@ $redis->connect();
 
 function vote_for($optionId, $sessionId) {
     global $redis;
-
-    $key = "option_id:$optionId";
-    $redis->sadd($key, $sessionId);
+    $redis->sadd("option_id:session:$optionId", $sessionId);
+    $redis->incr("option_id:counter:$optionId");
 }
 
 function get_votes_for($optionId) {
     global $redis;
-
-    $key = "option_id:$optionId";
-    return count($redis->smembers($key));
+    return $redis->get("option_id:counter:$optionId");
 }
 
