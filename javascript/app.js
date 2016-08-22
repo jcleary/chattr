@@ -1,6 +1,7 @@
 APP = {
     init: function() {
         APP.linkVoteButtons();
+        APP.setupChartRefresh();
     },
 
     linkVoteButtons: function() {
@@ -41,12 +42,12 @@ APP = {
 
     },
 
-    refreshGraphData: function() {
+    setupChartRefresh: function() {
         setInterval(function(){
-            // Add two random numbers for each dataset
-            myLiveChart.addData([Math.random() * 100, Math.random() * 100], ++latestLabel);
-            // Remove the first point so we dont just add values forever
-            myLiveChart.removeData();
+            $('.graph-canvas').each(function(_index, canvas) {
+                var surveyId = $(canvas).data('survey-id');
+                APP.refreshChartData(surveyId);
+            })
         }, 2000);
     }
 

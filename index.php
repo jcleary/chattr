@@ -73,7 +73,7 @@
         <h3 class="panel-title"><?=$name ?></h3>
       </div>
       <div class="panel-body">
-        <canvas id="canvas-survey-<?= $id ?>" width="400" height="100" data-survey-id="<?= $id ?>"></canvas>
+        <canvas id="canvas-survey-<?= $id ?>" width="400" height="100" data-survey-id="<?= $id ?>" class="graph-canvas"></canvas>
         <script>
           var surveyId = <?= $id ?>;
           charts[surveyId] = new Chart($("#canvas-survey-<?= $id ?>"), {
