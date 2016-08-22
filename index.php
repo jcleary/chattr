@@ -65,6 +65,9 @@
             $id = $survey[0];
             $name = $survey[1];
             $options = get_survey_options($id);
+
+
+
         ?>
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -80,7 +83,7 @@
                         labels: [<? foreach($options as $option) { echo "\"$option[1]\","; } ?>],
                         datasets: [{
                             label: '# of votes',
-                            data: [12, 19, 3, 5, 2, 3],
+                            data: [<? foreach($options as $option) { echo get_votes_for($option[0]) . ","; } ?>],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',

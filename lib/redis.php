@@ -5,9 +5,17 @@ $redis = new Predis\Client([
 ]);
 $redis->connect();
 
-function vote_for($surveyId, $optionId, $sessionId) {
+function vote_for($optionId, $sessionId) {
     global $redis;
 
-    $redis->set("$surveyId:$sessionId", $optionId);
+    $key = "option_id:$optionId";
+    $redis->sadd($key, $sessionId);
+}
+
+function get_votes_for($optionId) {
+    global $redis;
+
+    $key = "option_id:$optionId";
+    return count($redis->smembers($key));
 }
 

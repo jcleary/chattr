@@ -6,4 +6,4 @@ $surveyId = $_REQUEST['survey_id'];
 $optionId = $_REQUEST['option_id'];
 
 
-vote_for($surveyId, $optionId, $sessionId);
+vote_for($optionId, $sessionId);
