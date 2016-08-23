@@ -1,6 +1,6 @@
 <?php
 
-require_once('lib/database.php');
+require_once('lib/app.php');
 
 $commands = [
     'DROP DATABASE IF EXISTS chattr',
@@ -8,6 +8,9 @@ $commands = [
     'CREATE TABLE chattr.surveys (id INT NOT NULL AUTO_INCREMENT, name varchar(255), PRIMARY KEY (id))',
     'CREATE TABLE chattr.survey_options (id INT NOT NULL AUTO_INCREMENT, survey_id INT NOT NULL, value varchar(255), PRIMARY KEY (id))'
 ];
+
+global $redis;
+$redis->flushAll();
 
 db_exec($commands);
 
