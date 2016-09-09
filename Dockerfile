@@ -16,7 +16,7 @@ ADD docker/php/php.ini /usr/local/etc/php/php.ini
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer
 
-WORKDIR /var/www/html
+WORKDIR /app/web
 COPY composer.json composer.lock ./
 
 RUN composer install -o
