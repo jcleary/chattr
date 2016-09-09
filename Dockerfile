@@ -20,3 +20,5 @@ WORKDIR /var/www/html
 COPY composer.json composer.lock ./
 
 RUN composer install -o
+
+COPY . ./
