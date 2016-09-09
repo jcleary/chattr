@@ -1,8 +1,10 @@
 <?php
 
 $options = get_survey_options($survey_id);
+$panel_style = $can_vote ? 'panel-success' : 'panel-warning';
+
 ?>
-<div class="panel panel-success">
+<div class="panel <?= $panel_style ?>">
     <div class="panel-heading">
         <h3 class="panel-title"><?=$survey_name ?></h3>
     </div>
@@ -48,13 +50,15 @@ $options = get_survey_options($survey_id);
             });
         </script>
 
-        <h4>Vote now!</h4>
-        <?php
+        <?php if ($can_vote) { ?>
+            <h4>Vote now!</h4>
+            <?php
 
-        foreach($options as $option) {
-            echo '<button type="button" class="btn btn-success vote-button" data-survey-id="' . $survey_id . '" data-option-id="' . $option[0] . '">' . $option[1] . '</button> ';
-        }
-        ?>
+            foreach($options as $option) {
+                echo '<button type="button" class="btn btn-success vote-button" data-survey-id="' . $survey_id . '" data-option-id="' . $option[0] . '">' . $option[1] . '</button> ';
+            }
+            ?>
+        <?php } ?>
 
     </div>
 </div>

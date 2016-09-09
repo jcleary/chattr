@@ -23,8 +23,8 @@ function db_exec($commands) {
     return $res;
 }
 
-function create_survey($name, $values) {
-    db_exec("insert into surveys (name) values ('$name')");
+function create_survey($name, $values, $visible = 1, $can_vote = 1) {
+    db_exec("insert into surveys (name, visible, can_vote) values ('$name', $visible, $can_vote)");
 
     global $conn;
     $id = mysqli_insert_id($conn);
@@ -39,8 +39,8 @@ function get_current_survey() {
     return  mysqli_fetch_row($res);
 }
 
-function get_live_surveys() {
-    $res = db_exec("SELECT id, name FROM surveys WHERE live = 1 order by ID ");
+function get_visible_surveys() {
+    $res = db_exec("SELECT id, name, can_vote FROM surveys WHERE visible = 1 order by ID ");
     return  mysqli_fetch_all($res);
 }
 

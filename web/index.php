@@ -63,10 +63,11 @@
 
   <div>
     <?php
-    $surveys = get_live_surveys();
+    $surveys = get_visible_surveys();
     foreach($surveys as $survey) {
       $survey_id = $survey[0];
       $survey_name = $survey[1];
+      $can_vote = $survey[2];
       include 'partials/_survey.php';
     }
   ?>
