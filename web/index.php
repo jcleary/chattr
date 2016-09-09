@@ -1,4 +1,4 @@
-<?php require_once 'lib/app.php'; ?>
+<?php require_once '../lib/app.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +68,7 @@
       $survey_id = $survey[0];
       $survey_name = $survey[1];
       $can_vote = $survey[2];
-      include 'partials/_survey.php';
+      include '../partials/_survey.php';
     }
   ?>
 

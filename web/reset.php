@@ -1,6 +1,6 @@
 <?php
 
-require_once('lib/app.php');
+require_once '../lib/app.php';
 
 $commands = [
     'DROP DATABASE IF EXISTS chattr',

@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/app.php';
+require_once '../lib/app.php';
 
 $surveyId = $_REQUEST['survey_id'];
 
