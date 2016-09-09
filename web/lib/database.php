@@ -39,6 +39,12 @@ function get_current_survey() {
     return  mysqli_fetch_row($res);
 }
 
+function get_live_surveys() {
+    $res = db_exec("SELECT id, name FROM surveys WHERE live = 1 order by ID ");
+    return  mysqli_fetch_all($res);
+}
+
+
 function get_survey($id) {
     $res = db_exec("SELECT id, name FROM surveys where id = $id");
     return  mysqli_fetch_row($res);
