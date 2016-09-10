@@ -13,5 +13,9 @@ class SurveyManager {
         }
     }
 
+    function find($id) {
+        $res = db_exec("SELECT id, name FROM surveys where id = $id");
+        return  mysqli_fetch_row($res);
+    }
 
 }

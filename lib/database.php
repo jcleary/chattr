@@ -26,13 +26,6 @@ function get_visible_surveys() {
     return  mysqli_fetch_all($res);
 }
 
-
-function get_survey($id) {
-    $res = db_exec("SELECT id, name FROM surveys where id = $id");
-    return  mysqli_fetch_row($res);
-}
-
-
 function get_survey_options($id) {
     $res = db_exec("SELECT id, value FROM survey_options where survey_id = $id");
     $options = [];

@@ -6,7 +6,7 @@ class SurveyController extends Rest {
     public function get() {
         $surveyId = $_REQUEST['survey_id'];
 
-        $survey = get_survey($surveyId);
+        $survey = SurveyManager::find($surveyId);
         $options = get_survey_options($surveyId);
 
         $responseOptions = [];
