@@ -13,4 +13,3 @@ class VoteController extends Rest {
 }
 
 new VoteController();
-
