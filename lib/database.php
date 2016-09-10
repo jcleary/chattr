@@ -21,13 +21,6 @@ function db_exec($commands) {
     return $res;
 }
 
-
-
-function get_current_survey() {
-    $res = db_exec("SELECT id, name FROM surveys order by ID desc LIMIT 1");
-    return  mysqli_fetch_row($res);
-}
-
 function get_visible_surveys() {
     $res = db_exec("SELECT id, name, can_vote FROM surveys WHERE visible = 1 order by ID ");
     return  mysqli_fetch_all($res);
