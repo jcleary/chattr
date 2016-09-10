@@ -51,4 +51,10 @@ class SurveyManager {
         return $options;
     }
 
+    static public function vote($optionId, $sessionId) {
+        global $redis;
+        $redis->sadd("option_id:session:$optionId", $sessionId);
+        $redis->incr("option_id:counter:$optionId");
+    }
+
 }
