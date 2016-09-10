@@ -7,20 +7,20 @@ class SurveyController extends Rest {
         $surveyId = $_REQUEST['survey_id'];
 
         $survey = SurveyManager::find($surveyId);
-        $options = get_survey_options($surveyId);
+        $options = SurveyManager::options($surveyId);
 
         $responseOptions = [];
         foreach($options as $option) {
             $responseOptions[] = [
-                'id' => $option[0],
-                'name' => $option[1],
-                'votes' => get_votes_for($option[0])
+                'id' => $option['id'],
+                'name' => $option['name'],
+                'votes' => $option['votes']
             ];
         }
 
         $response = [
             'id' => $surveyId,
-            'name' => $survey[1],
+            'name' => $survey['name'],
             'options' => $responseOptions
         ];
 

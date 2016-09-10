@@ -5,11 +5,12 @@
 
 <div>
     <?php
-    $surveys = get_visible_surveys();
+
+    $surveys = SurveyManager::all(1);
     foreach($surveys as $survey) {
-        $survey_id = $survey[0];
-        $survey_name = $survey[1];
-        $can_vote = $survey[2];
+        $survey_id = $survey['id'];
+        $survey_name = $survey['name'];
+        $can_vote = $survey['can_vote'];
         include '../partials/_survey.php';
     }
     ?>

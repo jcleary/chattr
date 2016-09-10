@@ -1,6 +1,7 @@
 <?php
 
-$options = get_survey_options($survey_id);
+$options = SurveyManager::options($survey_id);
+
 $panel_style = $can_vote ? 'panel-success' : 'panel-warning';
 
 ?>
@@ -15,7 +16,7 @@ $panel_style = $can_vote ? 'panel-success' : 'panel-warning';
             charts[surveyId] = new Chart($("#canvas-survey-<?= $survey_id ?>"), {
                 type: 'bar',
                 data: {
-                    labels: [<? foreach($options as $option) { echo "\"$option[1]\","; } ?>],
+                    labels: [<? foreach($options as $option) { echo "\"" . $option["value"] . "\","; } ?>],
                     datasets: [{
                         label: '# of votes',
                         data: [<? foreach($options as $option) { echo get_votes_for($option[0]) . ","; } ?>],
@@ -55,7 +56,7 @@ $panel_style = $can_vote ? 'panel-success' : 'panel-warning';
             <?php
 
             foreach($options as $option) {
-                echo '<button type="button" class="btn btn-success vote-button" data-survey-id="' . $survey_id . '" data-option-id="' . $option[0] . '">' . $option[1] . '</button> ';
+                echo '<button type="button" class="btn btn-success vote-button" data-survey-id="' . $survey_id . '" data-option-id="' . $option['id'] . '">' . $option['value'] . '</button> ';
             }
             ?>
         <?php } ?>
