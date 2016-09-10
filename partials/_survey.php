@@ -19,7 +19,7 @@ $panel_style = $can_vote ? 'panel-success' : 'panel-warning';
                     labels: [<? foreach($options as $option) { echo "\"" . $option["value"] . "\","; } ?>],
                     datasets: [{
                         label: '# of votes',
-                        data: [<? foreach($options as $option) { echo get_votes_for($option[0]) . ","; } ?>],
+                        data: [<? foreach($options as $option) { echo $option['votes'] . ","; } ?>],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
