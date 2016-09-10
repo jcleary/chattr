@@ -43,13 +43,12 @@ class SurveyManager {
         $res = db_exec("SELECT id, value FROM survey_options where survey_id = $id");
         $options = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
+        global $redis;
         foreach($options as $key => $option) {
-            $options[$key]['votes'] = get_votes_for($option['id']);
+            $options[$key]['votes'] = $redis->get("option_id:counter:".$option['id']);
         }
 
         return $options;
     }
-
-
 
 }
