@@ -1,8 +1,6 @@
 <?php
 
-$redis = new Predis\Client([
-    'host' => 'redis'
-]);
+$redis = new Predis\Client(['host' => 'redis']);
 $redis->connect();
 
 function vote_for($optionId, $sessionId) {

@@ -1,9 +1,16 @@
 <?php
-
 require_once '../lib/app.php';
 
-$sessionId = session_id();
-$surveyId = $_REQUEST['survey_id'];
-$optionId = $_REQUEST['option_id'];
+class VoteController extends Rest {
 
-vote_for($optionId, $sessionId);
+    public function post() {
+        $sessionId = session_id();
+        $surveyId = $_REQUEST['survey_id'];
+        $optionId = $_REQUEST['option_id'];
+
+        vote_for($optionId, $sessionId);
+    }
+}
+
+new VoteController();
+

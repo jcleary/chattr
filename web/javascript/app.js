@@ -23,7 +23,7 @@ APP = {
 
     refreshChartData: function(surveyId) {
 
-        $.post(
+        $.get(
             '/survey.php',
             { survey_id: surveyId },
             function(data) {
