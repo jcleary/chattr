@@ -2,13 +2,11 @@
 
 abstract class Rest {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->process();
     }
 
-    public function process()
-    {
+    public function process() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->post();
         } elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -21,7 +19,4 @@ abstract class Rest {
     public function post() { }
 }
 
-
-
-?>
 

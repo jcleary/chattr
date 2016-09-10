@@ -1,11 +1,9 @@
 <?php
-
 $servername = "db";
 $username = "root";
 $password = "";
 
 $conn = new mysqli($servername, $username, $password);
-
 
 function db_exec($commands) {
     if (is_string($commands)) { $commands = [ $commands ]; }
@@ -23,16 +21,7 @@ function db_exec($commands) {
     return $res;
 }
 
-function create_survey($name, $values, $visible = 1, $can_vote = 1) {
-    db_exec("insert into surveys (name, visible, can_vote) values ('$name', $visible, $can_vote)");
 
-    global $conn;
-    $id = mysqli_insert_id($conn);
-
-    foreach($values as $value) {
-        db_exec("insert into survey_options (survey_id, value) values ($id, '$value')");
-    }
-}
 
 function get_current_survey() {
     $res = db_exec("SELECT id, name FROM surveys order by ID desc LIMIT 1");
@@ -59,6 +48,4 @@ function get_survey_options($id) {
     }
     return $options;
 }
-
-
 

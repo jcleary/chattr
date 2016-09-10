@@ -16,9 +16,9 @@ class ResetRequest extends Rest {
 
         db_exec($commands);
 
-        create_survey('Which do you prefer, tabs or spaces?', ['Tabs', 'Spaces'], 1, 0);
-        create_survey('Is this an interesting talk?', ['Sort of', 'Not so much'], 1, 1);
-        create_survey('Who east the most Pizza?', ['John', 'Hassan', 'Reiss', 'Brandon', 'Robin'], 1, 1);
+        SurveyManager::create('Which do you prefer, tabs or spaces?', ['Tabs', 'Spaces'], 1, 0);
+        SurveyManager::create('Is this an interesting talk?', ['Sort of', 'Not so much'], 1, 1);
+        SurveyManager::create('Who east the most Pizza?', ['John', 'Hassan', 'Reiss', 'Brandon', 'Robin'], 1, 1);
     }
 }
 
