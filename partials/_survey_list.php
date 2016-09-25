@@ -1,6 +1,6 @@
 <div class="starter-template">
     <h1>Chattr</h1>
-    <p class="lead">Your opinions ... in real-time</p>
+    <p class="lead">Your opinions matter</p>
 </div>
 
 <div>
