@@ -16,9 +16,10 @@ class ResetRequest extends Rest {
 
         db_exec($commands);
 
-        SurveyManager::create('Which do you prefer, tabs or spaces?', ['Tabs', 'Spaces'], 1, 0);
-        SurveyManager::create('Is this an interesting talk?', ['Sort of', 'Not so much'], 1, 1);
-        SurveyManager::create('Who east the most Pizza?', ['John', 'Hassan', 'Reiss', 'Brandon', 'Robin'], 1, 1);
+        SurveyManager::create('Do you use Docker?', ['No', 'Not yet, but am considering it', 'Yes, in development', 'Yes, in production'], 1, 1);
+        SurveyManager::create("What do you think is Docker\'s killer feature?", ['Its Cool', 'Can setup my dev like production', 'Easy to use', 'Better utilisation of production hardware'], 1, 1);
+        SurveyManager::create('Do you think Docker is production ready?', ['Yes', 'Maybe', 'No'], 1, 1);
+        SurveyManager::create('How much did you learn from this talk?', ['Heard it all before', 'A couple of useful bits of info', 'Quite a bit', 'Was too hard to follow'], 1, 1);
     }
 }
 
